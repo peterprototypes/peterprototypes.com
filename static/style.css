@@ -15,8 +15,31 @@
 }
 
 body {
+    margin: 0;
+    background: #ffffff;
+    color: #333;
+    font-size: 18px;
     line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
 }
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section,
+summary {
+    display: block;
+}
+
+/* Headers */
 
 h1,
 h2 {
@@ -26,30 +49,119 @@ h2 {
 
 h1 {
     font-weight: 700;
+    font-size: 1.35em;
 }
 
 h2 {
     font-weight: 500;
+    font-size: 1.2em;
 }
+
+h3 {
+    font-size: 1.1em;
+}
+
+/* Links */
 
 a {
     color: var(--comp-color);
     text-decoration: none;
 }
 
+a:active,
+a:hover {
+    outline: 0;
+}
+
+a:hover,
+a:focus {
+    color: var(--main-color);
+}
+
+a:active {
+    color: var(--main-color);
+    opacity: 0.9;
+}
+
+a.active {
+    color: var(--main-color);
+}
+
 h2 a {
     color: var(--text-color);
+}
+
+/* Table */
+.table-wrapper {
+    overflow-x: auto;
+}
+
+table {
+    max-width: 100%;
+    border-spacing: 0;
+}
+
+thead {
+    background: lightgrey;
+}
+
+th,
+td {
+    padding: 0.5em 1em;
+    border: 1px double lightgrey;
+}
+
+/* Code */
+pre {
+    padding: 1em;
+    background-color: #f1f1f1;
+    max-width: 100%;
+    overflow: auto;
+}
+
+code,
+pre,
+kbd {
+    font-family: monospace;
+    font-size: 0.90em;
+    line-height: 154%;
+}
+
+/* Styles */
+
+blockquote {
+    border-left: 2px solid #cccccc;
+    padding: 0.1em 1em;
+    margin-left: 0.75em;
+}
+
+p {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+hr {
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #cccccc;
+}
+
+ul ol,
+ol ol,
+ul ul {
+    margin: 0em 2em;
 }
 
 main {
     display: flex;
     flex-direction: column;
     padding: 0 30px;
-    margin: 0 auto;
+    margin: 30px auto;
     max-width: 900px;
+    outline: none;
 }
 
-#content {
+.content {
     display: flex;
     flex-direction: column;
 }
@@ -58,11 +170,13 @@ main {
 
 .post-list-item {
     border-bottom: thin solid #f1f1f1;
-    padding-bottom: 2em;
+    padding-bottom: 1em;
+    margin-bottom: 1.5em;
 }
 
 .post-list-item .post-title {
     margin-bottom: 0.5em;
+    margin: 0 0 0.5em 0;
 }
 
 .post-list-item .post-info {
@@ -85,13 +199,12 @@ main {
 /* Personal Information Section */
 
 .me {
-    min-width: 250px;
+    min-width: 210px;
     display: flex;
     flex-direction: row;
     align-items: flex-start;
     justify-content: center;
-    order: 1;
-    border-top: 10px solid var(--main-color);
+    order: 2;
     padding: 30px 0;
 }
 
@@ -106,6 +219,18 @@ main {
     margin-left: 30px;
 }
 
+.contact-info a {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.contact-info svg {
+    height: 18px;
+    margin-right: 0.5em;
+}
+
 .contact-info h1 {
     margin: 0;
     font-size: 23px;
@@ -116,9 +241,15 @@ main {
 
 .contact-info span {
     color: var(--text-disabled);
-    margin: 0 0 10px 0;
+    margin: 0 0 20px 0;
     font-size: 14px;
     line-height: 1;
+}
+
+.border {
+    background-color: var(--main-color);
+    height: 10px;
+    order: 1
 }
 
 /* Tablet Layout */
@@ -142,14 +273,7 @@ main {
         flex-direction: column;
         align-items: center;
         justify-content: flex-start;
-        border-top: 0;
-        border-right: 10px solid var(--main-color);
-        margin: 30px 30px 0 0;
-        padding: 0;
-    }
-
-    .profile-photo {
-        border-radius: 50%;
+        padding: 0 30px;
     }
 
     .me h1,
@@ -159,5 +283,12 @@ main {
 
     .contact-info {
         margin: 20px 0;
+    }
+
+    .border {
+        order: 0;
+        height: auto;
+        min-width: 10px;
+        margin-right: 30px;
     }
 }

@@ -9,24 +9,44 @@
 
     <title>Peter Todorov</title>
 
-    <link rel="stylesheet" type="text/css" href="css/reset.css">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="/style.css">
 </head>
 
 <body>
     <main>
         <aside class="me">
-            <img src="img/ProfilePhoto-1024.jpg" alt="Peter Todorov Profile Picture" class="profile-photo" />
+            <img src="/img/ProfilePhoto-1024.jpg" alt="Peter Todorov Profile Picture" class="profile-photo" />
             <div class="contact-info">
                 <h1>Peter Todorov</h1>
                 <span>Professional Software Developer</span>
-                <a href="https://twitter.com/PeterPrototypes" target="_blank">Twitter</a>
-                <a href="https://youtube.com/@PeterPrototypes" target="_blank">YouTube</a>
-                <a href="https://www.linkedin.com/in/peter-todorov-96604651/" target="_blank">LinkedIn</a>
-                <a href="mailto:me@peterprototypes.com">Email</a>
+                <a href="https://github.com/peterprototypes" target="_blank">
+                    {% include "icons/github.html" %}
+                    peterprototypes
+                </a>
+                <a href="https://gitlab.com/ptodorov" target="_blank">
+                    {% include "icons/gitlab.html" %}
+                    @ptodorov
+                </a>
+                <a href="https://twitter.com/PeterPrototypes" target="_blank">
+                    {% include "icons/twitter.html" %}
+                    @PeterPrototypes
+                </a>
+                <a href="https://youtube.com/@PeterPrototypes" target="_blank">
+                    {% include "icons/youtube.html" %}
+                    @PeterPrototypes
+                </a>
+                <a href="https://www.linkedin.com/in/peter-todorov-96604651/" target="_blank">
+                    {% include "icons/linkedin.html" %}
+                    in/peterprototypes
+                </a>
+                <a href="mailto:me@peterprototypes.com">
+                    {% include "icons/mail.html" %}
+                    me@peterprototypes.com
+                </a>
             </div>
         </aside>
-        <div id="content">
+        <div class="border"></div>
+        <div class="content">
             {% block content %} {% endblock %}
         </div>
     </main>
