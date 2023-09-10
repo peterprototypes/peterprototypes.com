@@ -3,15 +3,33 @@
 
 <head>
     <meta charset="utf-8">
-    <title>MyBlog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="" />
+
+    <title>Peter Todorov</title>
+
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 
 <body>
-    <section class="section">
-        <div class="container">
+    <main>
+        <aside class="me">
+            <img src="img/ProfilePhoto-1024.jpg" alt="Peter Todorov Profile Picture" class="profile-photo" />
+            <div class="contact-info">
+                <h1>Peter Todorov</h1>
+                <span>Professional Software Developer</span>
+                <a href="https://twitter.com/PeterPrototypes" target="_blank">Twitter</a>
+                <a href="https://youtube.com/@PeterPrototypes" target="_blank">YouTube</a>
+                <a href="https://www.linkedin.com/in/peter-todorov-96604651/" target="_blank">LinkedIn</a>
+                <a href="mailto:me@peterprototypes.com">Email</a>
+            </div>
+        </aside>
+        <div id="content">
             {% block content %} {% endblock %}
         </div>
-    </section>
+    </main>
 </body>
 
 </html>

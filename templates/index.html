@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% set section = get_section(path="blog/_index.md") %}
+
+{% for page in section.pages %}
+<section class="post-list-item">
+    <h2 class="post-title"><a href="{{ page.permalink | safe }}">{{ page.title }}</a></h2>
+    <div class="post-summary">
+        {{ page.summary | safe }}
+        <a href="{{ page.permalink | safe }}">continue reading...</a>
+    </div>
+    <div class="post-info">{{ page.date }}</div>
+    <div class="post-info">{{ page.reading_time }} min read</div>
+</section>
+{% endfor %}
+
+{% endblock content %}

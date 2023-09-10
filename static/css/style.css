@@ -1,0 +1,163 @@
+@import url('https://fonts.googleapis.com/css2?family=Kufam:ital,wght@1,500;1,700&family=Roboto:wght@400;700&display=swap');
+
+/* All css is mobile first for faster loading. Desktop overrides are applied via media query at the bottom */
+
+:root {
+    --main-color: #cb410b;
+    --comp-color: #0b95cb;
+    --text-primary: #333;
+    --text-disabled: grey;
+}
+
+* {
+    font-family: 'Roboto', sans-serif;
+    color: var(--text-primary);
+}
+
+body {
+    line-height: 1.5;
+}
+
+h1,
+h2 {
+    font-family: 'Kufam', sans-serif;
+    font-style: italic;
+}
+
+h1 {
+    font-weight: 700;
+}
+
+h2 {
+    font-weight: 500;
+}
+
+a {
+    color: var(--comp-color);
+    text-decoration: none;
+}
+
+h2 a {
+    color: var(--text-color);
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    padding: 0 30px;
+    margin: 0 auto;
+    max-width: 900px;
+}
+
+#content {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Posts List */
+
+.post-list-item {
+    border-bottom: thin solid #f1f1f1;
+    padding-bottom: 2em;
+}
+
+.post-list-item .post-title {
+    margin-bottom: 0.5em;
+}
+
+.post-list-item .post-info {
+    color: var(--text-disabled);
+    font-size: 0.75em;
+}
+
+.post-list-item:last-child {
+    border-bottom: none;
+}
+
+.post-list-item .post-summary {
+    margin-bottom: 1em;
+}
+
+.post-list-item .post-summary p {
+    display: inline;
+}
+
+/* Personal Information Section */
+
+.me {
+    min-width: 250px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    order: 1;
+    border-top: 10px solid var(--main-color);
+    padding: 30px 0;
+}
+
+.profile-photo {
+    width: 100px;
+    flex-grow: 1;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    margin-left: 30px;
+}
+
+.contact-info h1 {
+    margin: 0;
+    font-size: 23px;
+    line-height: 1;
+    text-transform: uppercase;
+    text-align: justify;
+}
+
+.contact-info span {
+    color: var(--text-disabled);
+    margin: 0 0 10px 0;
+    font-size: 14px;
+    line-height: 1;
+}
+
+/* Tablet Layout */
+
+@media only screen and (min-width: 600px) {
+    .profile-photo {
+        flex-grow: 0;
+    }
+}
+
+/* Desktop Layout */
+
+@media only screen and (min-width: 768px) {
+    main {
+        flex-direction: row;
+        padding: 0 30px 0 0;
+    }
+
+    .me {
+        order: 0;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        border-top: 0;
+        border-right: 10px solid var(--main-color);
+        margin: 30px 30px 0 0;
+        padding: 0;
+    }
+
+    .profile-photo {
+        border-radius: 50%;
+    }
+
+    .me h1,
+    .me span {
+        text-align: center;
+    }
+
+    .contact-info {
+        margin: 20px 0;
+    }
+}

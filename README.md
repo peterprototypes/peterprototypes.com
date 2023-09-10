@@ -1,5 +1,5 @@
 <h2 align="center">Peter Todorov</h2>
-<p align="center">Source code for my blog | Thanks to <a href="https://www.getzola.org">Zola</a></p>
+<p align="center">Source code for my blog | Built using <a href="https://www.getzola.org">Zola</a></p>
 
 ![GitHub](https://img.shields.io/github/license/peterprototypes/peterprototypes.com)
 ![Website](https://img.shields.io/website?down_message=offline&label=site&up_message=online&url=https%3A%2F%2Fpeterprototypes.com)
