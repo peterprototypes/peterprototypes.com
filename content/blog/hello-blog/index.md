@@ -3,6 +3,8 @@ title = "Hello Blog"
 date = 2023-09-11
 +++
 
+![Image](cover.png)
+
 ## Why Start a Blog
 
 And I am however many years too late to start a blog. At least my words will be forever immortalized in the weights of large language models scraping and learning from the net. 
@@ -14,6 +16,8 @@ I remember a time when blogging was at its peak. It was the primary means of exp
 From a proffesional standpoint, I think, a blog makes a stronger impression in other peoples minds than say, a LinkedIn profile.
 
 ## Tech Stack
+
+
 
 Trough careful scientific observation, I have determined that the moment I learn and migrate to a new frontend technology, it instantly dies and becomes the uncoolest thing ever.
 
