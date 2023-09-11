@@ -18,31 +18,40 @@
             <img src="/img/ProfilePhoto-1024.jpg" alt="Peter Todorov Profile Picture" class="profile-photo" />
             <div class="contact-info">
                 <h1>Peter Todorov</h1>
-                <span>Professional Software Developer</span>
-                <a href="https://github.com/peterprototypes" target="_blank" title="GitHub">
-                    {% include "icons/github.html" %}
-                    peterprototypes
-                </a>
-                <a href="https://gitlab.com/ptodorov" target="_blank" title="GitLab">
-                    {% include "icons/gitlab.html" %}
-                    @ptodorov
-                </a>
-                <a href="https://twitter.com/PeterPrototypes" target="_blank" title="Twitter">
-                    {% include "icons/twitter.html" %}
-                    @PeterPrototypes
-                </a>
-                <a href="https://youtube.com/@PeterPrototypes" target="_blank" title="YouTube">
-                    {% include "icons/youtube.html" %}
-                    @PeterPrototypes
-                </a>
-                <a href="https://www.linkedin.com/in/peter-todorov-96604651/" target="_blank" title="LinkedIn">
-                    {% include "icons/linkedin.html" %}
-                    in/peterprototypes
-                </a>
-                <a href="mailto:me@peterprototypes.com" title="Email Me">
-                    {% include "icons/mail.html" %}
-                    me@peterprototypes.com
-                </a>
+                <!-- <span>Where Software Meets Concrete</span> -->
+                <span>Hitting Software With a Hammer</span>
+                <div class="social-links">
+                    <a href="https://github.com/peterprototypes" target="_blank" title="GitHub">
+                        {% include "icons/github.html" %}
+                    </a>
+                    <a href="https://gitlab.com/ptodorov" target="_blank" title="GitLab">
+                        {% include "icons/gitlab.html" %}
+                    </a>
+                    <a href="https://twitter.com/PeterPrototypes" target="_blank" title="Twitter">
+                        {% include "icons/twitter.html" %}
+                    </a>
+                    <a href="https://youtube.com/@PeterPrototypes" target="_blank" title="YouTube">
+                        {% include "icons/youtube.html" %}
+                    </a>
+                    <a href="https://www.linkedin.com/in/peter-todorov-96604651/" target="_blank" title="LinkedIn">
+                        {% include "icons/linkedin.html" %}
+                    </a>
+                    <a href="mailto:me@peterprototypes.com" title="Email Me">
+                        {% include "icons/mail.html" %}
+                    </a>
+                </div>
+
+                <div class="social-links">
+                    <a href="/atom.xml" target="_blank" title="Atom Feed">
+                        {% include "icons/feed.html" %}
+                        &nbsp;
+                        Subscribe
+                    </a>
+                </div>
+                <p>
+                    Hey, I'm Peter. I'm a software dev by day and hardware hacker by night. If you spot any inaccuracies
+                    or wish to contribute, don't hesitate to open a PR on GitHub or drop me an email.
+                </p>
             </div>
         </aside>
         <div class="border"></div>
@@ -50,6 +59,8 @@
             {% block content %} {% endblock %}
         </div>
     </main>
+
+    {% include "partials/github-corner.html" %}
 </body>
 
 </html>

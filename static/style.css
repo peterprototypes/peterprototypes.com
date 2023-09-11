@@ -11,7 +11,6 @@
 
 * {
     font-family: 'Roboto', sans-serif;
-    color: var(--text-primary);
 }
 
 body {
@@ -76,6 +75,11 @@ a:hover {
 a:hover,
 a:focus {
     color: var(--main-color);
+}
+
+a:hover svg,
+a:focus svg {
+    fill: var(--main-color);
 }
 
 a:active {
@@ -217,18 +221,29 @@ main {
     display: flex;
     flex-direction: column;
     margin-left: 30px;
+    flex-grow: 1;
 }
 
-.contact-info a {
+.social-links {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.social-links a {
     display: flex;
     align-items: center;
-    font-size: 14px;
-    margin-bottom: 5px;
+    margin-bottom: 20px;
 }
 
 .contact-info svg {
     height: 18px;
-    margin-right: 0.5em;
+}
+
+.contact-info p {
+    font-size: 14px;
+    color: var(--text-disabled);
 }
 
 .contact-info h1 {
@@ -282,7 +297,7 @@ main {
     }
 
     .contact-info {
-        margin: 20px 0;
+        margin: 20px 0 0 0;
     }
 
     .border {
