@@ -173,6 +173,7 @@ main {
     display: flex;
     flex-direction: column;
     max-width: 590px;
+    flex-grow: 1;
 }
 
 .content img {
@@ -274,6 +275,30 @@ main {
     background-color: var(--main-color);
     height: 10px;
     order: 1
+}
+
+/* 404 */
+
+.fof {
+    margin-bottom: 1em;
+    border-bottom: thin solid #f1f1f1;
+}
+
+.fof h1 {
+    display: inline-block;
+    padding-right: 10px;
+    margin: 0;
+    animation: type .5s alternate infinite;
+}
+
+@keyframes type {
+    from {
+        box-shadow: inset -3px 0px 0px #888;
+    }
+
+    to {
+        box-shadow: inset -3px 0px 0px transparent;
+    }
 }
 
 /* Tablet Layout */
