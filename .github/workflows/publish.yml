@@ -1,15 +1,12 @@
-name: Publish to AWS
+name: Build and Publish to AWS
 on:
   push:
     branches:
       - main
 jobs:
-  run:
+  build:
     runs-on: ubuntu-latest
     timeout-minutes: 10
-    env:
-      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
     steps:
       - uses: actions/checkout@v3
       - uses: taiki-e/install-action@v2
@@ -17,6 +14,13 @@ jobs:
           tool: zola@0.17.2
       - name: Build
         run: zola build
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+    steps:
       - uses: reggionick/s3-deploy@v4
         with:
           folder: public
