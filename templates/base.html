@@ -5,9 +5,24 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="description" content="" />
+    <meta property="og:image" content="/img/ProfilePhoto-400.jpg" />
 
-    <title>Peter Todorov</title>
+    {% if page %}
+    {% if page.description %}
+    <meta name="description" content="{{ page.description }}" />
+    {% elif config.description %}
+    <meta name="description" content="{{ config.description }}" />
+    {% endif %}
+    {% elif config.description %}
+    <meta name="description" content="{{ config.description }}" />
+    {% endif %}
+
+    <title>{% if page and page.title %}{{page.title}} | {% endif %}{{ config.title }}</title>
+
+    {% if config.generate_feed %}
+    <link rel="alternate" type={% if config.feed_filename=="atom.xml" %}"application/atom+xml"{% else
+        %}"application/rss+xml"{% endif %} title="RSS" href="{{ get_url(path=config.feed_filename) | safe }}">
+    {% endif %}
 
     <link rel="stylesheet" type="text/css" href="/style.css">
 </head>
@@ -18,7 +33,6 @@
             <img src="/img/ProfilePhoto-400.jpg" alt="Peter Todorov Profile Picture" class="profile-photo" />
             <div class="contact-info">
                 <h1>Peter Todorov</h1>
-                <!-- <span>Where Software Meets Concrete</span> -->
                 <span>Hitting Software With a Hammer</span>
                 <div class="social-links">
                     <a href="https://github.com/peterprototypes" target="_blank" title="GitHub">

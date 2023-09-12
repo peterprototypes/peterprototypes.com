@@ -1,6 +1,7 @@
 +++
 title = "Hello Blog"
 date = 2023-09-11
+description = "And I am however many years too late to start a blog. Maybe a lot of things feel late when you're just starting out..."
 +++
 
 ![Image](cover.jpg)
