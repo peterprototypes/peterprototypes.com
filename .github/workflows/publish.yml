@@ -23,4 +23,5 @@ jobs:
           bucket: ${{ secrets.S3_BUCKET }}
           dist-id: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}
           invalidation: /
+          private: true
           bucket-region: us-east-1
