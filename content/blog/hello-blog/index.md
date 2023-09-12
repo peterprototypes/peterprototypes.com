@@ -3,25 +3,23 @@ title = "Hello Blog"
 date = 2023-09-11
 +++
 
-![Image](cover.png)
+![Image](cover.jpg)
 
-## Why Start a Blog
+## 💻 Why Start a Blog in [current_year]
 
-And I am however many years too late to start a blog. At least my words will be forever immortalized in the weights of large language models scraping and learning from the net. 
+And I am however many years too late to start a blog. Maybe a lot of things feel late when you're just starting out. Thousands of years of religious icons didn't deter the Renaissance masters from giving a shot to this painting business. So I decided to believe the age old adage that the second best time is _now_. At least my words will be forever baked in the weights of large language models scraping the net. 
 
-The benefits of starting a blog in current year are<!-- more --> the same as any other time. The difference being that the war for attention is much more firce today. Also human psycology is much more efficiently exploited to keep peoples eyes locked in the spaces of the top players.
+The benefits of starting a blog today are<!-- more --> the same as any other time. The difference being that the war for attention is much more fierce. Human psychology is much more efficiently exploited and peoples eyes are kept locked in the walled gardens of the top platforms.
 
-I remember a time when blogging was at its peak. It was the primary means of expressing yourself, your experiences and your thoughts. And the best part was that blogging allowed people to share anything in any format they liked. Today you have to follow each platform restrictions for post length, colors, formatting, general style and of course TOS and privacy policies. And I think this robs online spaces of personality.
+I remember a time when blogging was at its peak. Blogging allowed people to share anything in any format they liked. Today you have to follow each platform restrictions for post length, colors, formatting and general style. This robs online spaces of personality and hinders self expression.
 
-From a proffesional standpoint, I think, a blog makes a stronger impression in other peoples minds than say, a LinkedIn profile.
+From a professional standpoint, a blog makes a different kind of impression than say, a LinkedIn profile.
 
-## Tech Stack
-
-
+## 🛠️ Tech Stack
 
 Trough careful scientific observation, I have determined that the moment I learn and migrate to a new frontend technology, it instantly dies and becomes the uncoolest thing ever.
 
-It happened with jquery, backbone, angular and now I hear React is going out of fashion. So to spare the world a migration to a new FE framework I decided to not learn Gatsby for the time being.
+It happened with jQuery, Backbone.js, Angular and now I hear React is going out of style. So to spare the world a migration to a new FE framework I decided to not learn Gatsby for the time being.
 
-Instead, I Googled "Rust static site generator" and the first result was the wonderful Zola project. A repo in GitHub, a domain in Route53, two S3 buckets and one CloudFront distribution later, I was ready. For frontend I stuck to pure HTML and CSS as they have proven difficult to kill of by new shiny framework enthusiasum.
+Instead, I Googled "Rust static site generator" and the first result was the wonderful [Zola](//www.getzola.org) project. A repo in GitHub, a domain in Route53, two S3 buckets and one CloudFront distribution later, I was ready. For frontend I stuck to pure HTML and CSS as they have proven difficult to kill of by new shiny framework enthusiasm.
 
