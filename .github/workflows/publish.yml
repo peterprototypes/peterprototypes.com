@@ -4,7 +4,7 @@ on:
     branches:
       - main
 jobs:
-  build:
+  run:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -14,15 +14,10 @@ jobs:
           tool: zola@0.17.2
       - name: Build
         run: zola build
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    timeout-minutes: 10
-    env:
-      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-    steps:
       - uses: reggionick/s3-deploy@v4
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         with:
           folder: public
           bucket: ${{ secrets.S3_BUCKET }}
@@ -30,3 +25,4 @@ jobs:
           invalidation: /
           private: true
           bucket-region: us-east-1
+      
