@@ -1,7 +1,7 @@
 # Full configuration documentation: https://www.getzola.org/documentation/getting-started/configuration/
 
 # The URL the site will be built for
-base_url = "peterprototypes.com"
+base_url = "https://peterprototypes.com"
 
 # Whether to automatically compile all Sass files in the sass directory
 compile_sass = false
