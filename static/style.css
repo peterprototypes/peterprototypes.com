@@ -125,6 +125,7 @@ pre {
     background-color: #f1f1f1;
     max-width: 100%;
     overflow: auto;
+    margin: 0;
 }
 
 code,
@@ -238,13 +239,13 @@ main {
     display: flex;
     flex-direction: row;
     align-items: flex-start;
+    margin-bottom: 20px;
 }
 
 .social-links a {
     display: flex;
     align-items: center;
     margin-right: 1em;
-    margin-bottom: 20px;
 }
 
 .contact-info svg {
@@ -328,6 +329,10 @@ main {
 
     .social-links {
         justify-content: space-between;
+    }
+
+    .social-links a {
+        margin-right: 0;
     }
 
     .me h1,

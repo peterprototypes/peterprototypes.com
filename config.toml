@@ -5,6 +5,7 @@ base_url = "https://peterprototypes.com"
 
 title = "Peter Todorov 💻 Blog"
 description = "Hey, I'm Peter. I'm a software dev by day and hardware hacker by night. I'm publishing my ramblings and findings here."
+author = "Peter Todorov"
 
 # Whether to automatically compile all Sass files in the sass directory
 compile_sass = false
