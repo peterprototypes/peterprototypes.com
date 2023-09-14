@@ -4,13 +4,15 @@ date = 2023-09-13
 description = "This post describes a simple approach on calling Huggingface ML models from a Rust codebase via Python interop"
 +++
 
+![Image](cover.jpg)
+
 Recently I wanted to include 🤗 Huggingface transformers in a Rust voice assistant I was working on. It's muscle memory for me now to search for a pure Rust implementation of whatever I'm trying to do. Unfortunately, even though the machine learning landscape in Rust is gaining momentum, I couldn't find a crate that can load and run the specific set of models I needed on the **GPU**. Specially the architectures currently popular on [🤗 Huggingface](https://huggingface.co/).
 <!-- more -->
 If you're reading this in a couple of years, first check the state of the art on [Are we learning yet?](https://www.arewelearningyet.com/) The two most capable projects currently are [burn](https://github.com/burn-rs/burn) and [transformer-deploy](https://github.com/ELS-RD/transformer-deploy) Check them out first! Both require some conversion steps to be applied to each model, and not all models are supported. But if they support your workload, a pure Rust implementation should always be preferred.
 
-As much as I grumbled, I realized I needed to call python code from Rust. To my pleasant surprise, doing so is surprisingly simple with the awesome [PyO3](https://pyo3.rs) crate. This guide isn't anything complicated, aiming to save you (and even myself in a month or two) a few minutes of stumbling on how fit these pieces together.
+As much as I grumbled, I realized I needed to call Python code from Rust. To my pleasant surprise, doing so is simple with the awesome [PyO3](https://pyo3.rs) crate. This guide isn't anything complicated, it's aim is to save you (and even myself in a month or two) a few minutes of stumbling on how to fit these pieces together.
 
-The approach outlined here involves linking Python with your Rust binary. For the models to respond as quickly as possible they are loaded at startup in video memory (if present). Subsequently, the Rust code invokes Python functions responsible for inference.
+The approach outlined here involves linking Python with your Rust binary. For the models to respond as quickly as possible they are loaded at startup in video memory (if present). Subsequently, the Rust code invokes a Python function responsible for inference.
 
 ### Setting Up the Environment
 
@@ -31,11 +33,11 @@ Init the Python environment and add it to .gitignore. This will make sure that a
 ```bash
 python -m venv .venv && echo ".venv" >> .gitignore
 ```
-Activate the newly created virtual environment
+Activate the newly created virtual environment:
 ```bash
 source .venv/bin/activate
 ```
-Create a requirements.txt file in the root of your app with the following content
+Create a `requirements.txt` file in the root of your app with the following content:
 ```
 transformers
 torch
@@ -44,7 +46,7 @@ torchaudio
 datasets
 sentencepiece
 ```
-You can, of course, only include the dependencies you need. Install them via pip
+You can, of course, only include the dependencies you need. Install them via pip:
 ```bash
 pip install -r requirements.txt
 ```
@@ -95,7 +97,7 @@ fn main() -> Result<()> {
 }
 ```
 
-Now we load the Python file we created in the last step
+We then load the Python file we created in the last step
 
 ```rust
 use anyhow::{anyhow, Result};
