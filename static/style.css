@@ -99,6 +99,10 @@ h1.title {
     border-bottom: thin solid lightgrey;
 }
 
+a.zola-anchor {
+    margin-right: 0.5em;
+}
+
 /* Table */
 .table-wrapper {
     overflow-x: auto;
@@ -159,6 +163,10 @@ ul ol,
 ol ol,
 ul ul {
     margin: 0em 2em;
+}
+
+ul {
+    margin: 0 0 2em 0;
 }
 
 main {
@@ -263,6 +271,14 @@ main {
     line-height: 1;
     text-transform: uppercase;
     text-align: justify;
+}
+
+.contact-info h1 a {
+    color: var(--text-color);
+}
+
+.contact-info h1 a:hover {
+    color: var(--main-color);
 }
 
 .contact-info span {
