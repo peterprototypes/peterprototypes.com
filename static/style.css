@@ -9,8 +9,6 @@
     --text-disabled: grey;
 }
 
-* {}
-
 body {
     margin: 0;
     background: #ffffff;
@@ -232,7 +230,7 @@ main {
 }
 
 .profile-photo {
-    width: 150px;
+    width: 180px;
     flex-grow: 1;
     border-radius: 50%;
 }
