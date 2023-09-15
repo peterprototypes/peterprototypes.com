@@ -129,7 +129,7 @@ pre {
     background-color: #f1f1f1;
     max-width: 100%;
     overflow: auto;
-    margin: 0;
+    margin-top: 0;
 }
 
 code,
