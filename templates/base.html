@@ -28,7 +28,7 @@
 </head>
 
 <body>
-    <main class="{% if current_path and current_path == '/' %}index-page{% endif %}">
+    <main class="{% if not current_path or current_path == '/' %}index-page{% endif %}">
         <aside class="me">
             <div class="profile-photo-wrapper">
                 <img src="/img/ProfilePhoto-400.jpg" alt="Peter Todorov Profile Picture" class="profile-photo" />
