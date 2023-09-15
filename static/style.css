@@ -179,8 +179,10 @@ main {
 .content {
     display: flex;
     flex-direction: column;
-    max-width: 590px;
+    max-width: 768px;
+    width: 100%;
     flex-grow: 1;
+    overflow: auto;
 }
 
 .content img {
@@ -229,9 +231,12 @@ main {
     padding: 30px 0;
 }
 
+.profile-photo-wrapper {
+    max-width: 180px;
+}
+
 .profile-photo {
-    width: 180px;
-    flex-grow: 1;
+    width: 100%;
     border-radius: 50%;
 }
 
