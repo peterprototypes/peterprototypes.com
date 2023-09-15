@@ -232,8 +232,9 @@ main {
 }
 
 .profile-photo {
-    width: 100px;
+    width: 150px;
     flex-grow: 1;
+    border-radius: 50%;
 }
 
 .contact-info {
