@@ -6,7 +6,7 @@ description = "This post describes a simple approach on calling Huggingface ML m
 
 ![Connecting](cover.jpg)
 
-Recently I wanted to include 🤗 Huggingface transformers in a Rust voice assistant I was working on. It's muscle memory for me now to search for a pure Rust implementation of whatever I'm trying to do. Unfortunately, even though the machine learning landscape in Rust is gaining momentum, I couldn't find a crate that can load and run the specific set of models I needed on the **GPU**.<!-- more --> Specially the architectures currently popular on [🤗 Huggingface](https://huggingface.co/).
+Recently I wanted to include 🤗 Huggingface transformers in a Rust voice assistant I was working on. It's muscle memory for me now to search for a pure Rust implementation of whatever I'm trying to do. Unfortunately, even though the machine learning landscape in Rust is gaining momentum, I couldn't find a crate that can load and run the specific set of models I needed on the **GPU**.<!-- more --> Specially the architectures currently popular on [🤗 Huggingface](https://huggingface.co/). By the end of this post, you will be able to make your Rust apps speak with an AI voice.
 
 If you're reading this in a couple of years, first check the state of the art on [Are we learning yet?](https://www.arewelearningyet.com/) The two most capable projects currently are [burn](https://github.com/burn-rs/burn) and [transformer-deploy](https://github.com/ELS-RD/transformer-deploy) Check them out first! Both require some conversion steps to be applied to each model, and not all models are supported. But if they support your workload, a pure Rust implementation should always be preferred.
 

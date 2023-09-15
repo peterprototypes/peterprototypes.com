@@ -28,7 +28,7 @@
 </head>
 
 <body>
-    <main>
+    <main class="{% if current_path and current_path == '/' %}index-page{% endif %}">
         <aside class="me">
             <div class="profile-photo-wrapper">
                 <img src="/img/ProfilePhoto-400.jpg" alt="Peter Todorov Profile Picture" class="profile-photo" />
@@ -36,6 +36,7 @@
             <div class="contact-info">
                 <h1><a href="/">Peter Todorov</a></h1>
                 <span>Proffesional Software Developer</span>
+                <span>Follow me at</span>
                 <div class="social-links">
                     <a href="https://github.com/peterprototypes" target="_blank" title="GitHub">
                         {% include "icons/github.html" %}
