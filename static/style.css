@@ -244,6 +244,7 @@ main {
     flex-direction: column;
     margin-left: 30px;
     flex-grow: 1;
+    /* padding-bottom: 30px; */
 }
 
 .social-links {
@@ -336,7 +337,7 @@ main {
         flex-direction: column;
         align-items: center;
         justify-content: flex-start;
-        padding: 0 30px;
+        padding: 0 30px 0 0;
         max-width: 210px;
     }
 
@@ -345,6 +346,10 @@ main {
         height: auto;
         min-width: 10px;
         margin-right: 30px;
+    }
+
+    .index-page .contact-info {
+        margin: 20px 0 0 0;
     }
 }
 
