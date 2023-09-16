@@ -1,12 +1,10 @@
 +++
-title = "Hello Blog"
+title = "💻 Why Start a Blog in [current_year]"
 date = 2023-09-11
 description = "And I am however many years too late to start a blog. Maybe a lot of things feel late when you're just starting out..."
 +++
 
 ![Image](cover.jpg)
-
-## 💻 Why Start a Blog in [current_year]
 
 And I am however many years too late to start a blog. Maybe a lot of things feel late when you're just starting out. Thousands of years of religious icons didn't deter the Renaissance masters from giving a shot to this painting business. So I decided to believe the age old adage that the second best time is _now_. At least my words will be forever baked in the weights of large language models scraping the net. 
 
@@ -16,7 +14,7 @@ I remember a time when blogging was at its peak. Blogging allowed people to shar
 
 From a professional standpoint, a blog makes a different kind of impression than say, a LinkedIn profile.
 
-## 🛠️ Tech Stack
+## Tech Stack 🛠️
 
 Trough careful scientific observation, I have determined that the moment I learn and migrate to a new frontend technology, it instantly dies and becomes the uncoolest thing ever.
 

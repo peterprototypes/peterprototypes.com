@@ -1,12 +1,12 @@
 +++
-title = "Calling 🤗 Huggingface models from Rust"
+title = "🤗 Calling Hugging Face models from Rust"
 date = 2023-09-13
-description = "This post describes a simple approach on calling Huggingface ML models from a Rust codebase via Python interop"
+description = "This post describes a simple approach on calling Hugging Face ML models from a Rust codebase via Python interop"
 +++
 
 ![Connecting](cover.jpg)
 
-Recently I wanted to include 🤗 Huggingface transformers in a Rust voice assistant I was working on. It's muscle memory for me now to search for a pure Rust implementation of whatever I'm trying to do. Unfortunately, even though the machine learning landscape in Rust is gaining momentum, I couldn't find a crate that can load and run the specific set of models I needed on the **GPU**.<!-- more --> Specially the architectures currently popular on [🤗 Huggingface](https://huggingface.co/).
+Recently I wanted to include 🤗 **Transformers** in a Rust voice assistant I was working on. It's muscle memory for me now to search for a pure Rust implementation of whatever I'm trying to do. Unfortunately, even though the machine learning landscape in Rust is gaining momentum, I couldn't find a crate that can load and run the specific set of models I needed on the **GPU**.<!-- more --> Specially the architectures currently popular on [Hugging Face](https://huggingface.co/).
 
 If you're reading this in a couple of years, first check the state of the art on [Are we learning yet?](https://www.arewelearningyet.com/) The two most capable projects currently are [burn](https://github.com/burn-rs/burn) and [transformer-deploy](https://github.com/ELS-RD/transformer-deploy) Check them out first! Both require some conversion steps to be applied to each model, and not all models are supported. But if they support your workload, a pure Rust implementation should always be preferred.
 
@@ -77,7 +77,7 @@ def text_to_speech(text):
     return speech.cpu().numpy()
 ```
 
-The important thing to note here is that this is very little code. It's almost identical to the [example](https://huggingface.co/microsoft/speecht5_tts#how-to-get-started-with-the-model) given in the official model card. This way, you can easily pick and use almost any [model](https://huggingface.co/models) from Huggingface.
+The important thing to note here is that this is very little code. It's almost identical to the [example](https://huggingface.co/microsoft/speecht5_tts#how-to-get-started-with-the-model) given in the official model card. This way, you can easily pick and use almost any [model](https://huggingface.co/models) from Hugging Face.
 
 The main difference from the official example is that we're moving the model inference step inside a function. We will now call that from Rust.
 
@@ -319,10 +319,10 @@ cargo clean
 
 ### References
 
-- [🤗 Huggingface](https://huggingface.co/)
+- [Hugging Face](https://huggingface.co/)
 - [Are we learning yet?](https://www.arewelearningyet.com/)
-- [burn](https://github.com/burn-rs/burn)
-- [transformer-deploy](https://github.com/ELS-RD/transformer-deploy)
 - [PyO3](https://pyo3.rs)
 - [speecht5_tts](https://huggingface.co/microsoft/speecht5_tts)
 - [cpal](https://crates.io/crates/cpal)
+- [burn](https://github.com/burn-rs/burn)
+- [transformer-deploy](https://github.com/ELS-RD/transformer-deploy)
