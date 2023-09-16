@@ -320,6 +320,7 @@ cargo clean
 ### References
 
 - [Hugging Face](https://huggingface.co/)
+- [🤗 candle](https://github.com/huggingface/candle)
 - [Are we learning yet?](https://www.arewelearningyet.com/)
 - [PyO3](https://pyo3.rs)
 - [speecht5_tts](https://huggingface.co/microsoft/speecht5_tts)
