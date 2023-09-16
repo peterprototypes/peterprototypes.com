@@ -93,8 +93,17 @@ h2 a {
 }
 
 h1.title {
+    display: flex;
     margin-top: 0;
     border-bottom: thin solid lightgrey;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+
+h1.title .post-info {
+    font-size: 12px;
+    font-weight: normal;
+    margin-bottom: 5px;
 }
 
 a.zola-anchor {

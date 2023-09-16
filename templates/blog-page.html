@@ -3,11 +3,9 @@
 {% block content %}
 <h1 class="title">
     {{ page.title }}
+    <div class="post-info">{{ page.date }}</div>
 </h1>
 
-<!-- <p class="subtitle"><strong>{{ page.date }}</strong></p> -->
 {{ page.content | safe }}
-
-<div class="post-info">{{ page.date }}</div>
 
 {% endblock content %}
