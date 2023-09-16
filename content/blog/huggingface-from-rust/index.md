@@ -1,12 +1,12 @@
 +++
-title = "Calling 🤗 Huggingface models from Rust"
+title = "🤗 Calling Hugging Face models from Rust"
 date = 2023-09-13
-description = "This post describes a simple approach on calling Huggingface ML models from a Rust codebase via Python interop"
+description = "This post describes a simple approach on calling Hugging Face ML models from a Rust codebase via Python interop"
 +++
 
 ![Connecting](cover.jpg)
 
-Recently I wanted to include 🤗 Huggingface transformers in a Rust voice assistant I was working on. It's muscle memory for me now to search for a pure Rust implementation of whatever I'm trying to do. Unfortunately, even though the machine learning landscape in Rust is gaining momentum, I couldn't find a crate that can load and run the specific set of models I needed on the **GPU**.<!-- more --> Specially the architectures currently popular on [🤗 Huggingface](https://huggingface.co/). By the end of this post, you will be able to make your Rust apps speak with an AI voice.
+Recently I wanted to include 🤗 **Transformers** in a Rust voice assistant I was working on. It's muscle memory for me now to search for a pure Rust implementation of whatever I'm trying to do. Unfortunately, even though the machine learning landscape in Rust is gaining momentum, I couldn't find a crate that can load and run the specific set of models I needed on the **GPU**.<!-- more --> Specially the architectures currently popular on [Hugging Face](https://huggingface.co/). By the end of this post, you will be able to make your Rust apps speak with an AI voice.
 
 If you're reading this in a couple of years, first check the state of the art on [Are we learning yet?](https://www.arewelearningyet.com/) The most capable projects currently are [🤗 candle](https://github.com/huggingface/candle), [burn](https://github.com/burn-rs/burn) and [transformer-deploy](https://github.com/ELS-RD/transformer-deploy) Check them out first! Some may require conversion steps to be applied to each model, and not all models are supported. But if they support your workload, a pure Rust implementation should always be preferred.
 
@@ -16,27 +16,31 @@ The approach outlined here involves linking Python with your Rust binary. For th
 
 ### Setting Up the Environment
 
-We're gonna need a Rust app and a Python virtual environment in it.
-
+We're gonna need a Rust app and a Python virtual environment in it:
 ```bash
 cargo new huggingface-example
 ```
-Then **cd** into the directory
+
+Then **cd** into the directory:
 ```bash
 cd huggingface-example/
 ```
-Add the necessary dependencies
+
+Add the necessary dependencies:
 ```bash
 cargo add cpal anyhow pyo3 -F pyo3/auto-initialize
 ```
-Init the Python environment and add it to .gitignore. This will make sure that anything you do and install will be self contained to the current folder.
+
+Init the Python environment and add it to .gitignore. This will make sure that anything you do and install will be self contained to the current folder:
 ```bash
 python -m venv .venv && echo ".venv" >> .gitignore
 ```
+
 Activate the newly created virtual environment:
 ```bash
 source .venv/bin/activate
 ```
+
 Create a `requirements.txt` file in the root of your app with the following content:
 ```
 transformers
@@ -46,6 +50,7 @@ torchaudio
 datasets
 sentencepiece
 ```
+
 You can, of course, only include the dependencies you need. Install them via pip:
 ```bash
 pip install -r requirements.txt
@@ -53,8 +58,7 @@ pip install -r requirements.txt
 
 ### Python Land
 
-Create a `huggingface.py` file in the root of your app
-
+Create a `huggingface.py` file in the root of your app:
 ```python
 from transformers import SpeechT5Processor, SpeechT5ForTextToSpeech, SpeechT5HifiGan
 from datasets import load_dataset
@@ -77,7 +81,7 @@ def text_to_speech(text):
     return speech.cpu().numpy()
 ```
 
-The important thing to note here is that this is very little code. It's almost identical to the [example](https://huggingface.co/microsoft/speecht5_tts#how-to-get-started-with-the-model) given in the official model card. This way, you can easily pick and use almost any [model](https://huggingface.co/models) from Huggingface.
+The important thing to note here is that this is very little code. It's almost identical to the [example](https://huggingface.co/microsoft/speecht5_tts#how-to-get-started-with-the-model) given in the official model card. This way, you can easily pick and use almost any [model](https://huggingface.co/models) from Hugging Face.
 
 The main difference from the official example is that we're moving the model inference step inside a function. We will now call that from Rust.
 
@@ -85,7 +89,7 @@ The main difference from the official example is that we're moving the model inf
 
 We're going to create a simple app that reads user input from stdin, sends it to the `text_to_speech` function in Python and then plays the resulting audio back via the [cpal](https://crates.io/crates/cpal) crate.
 
-Lets start with the basics, open the `main.rs` file and include anyhow and PyO3's prelude. Then initialize the [Python Global Interpreter Lock (GIL)](https://docs.rs/pyo3/latest/pyo3/marker/struct.Python.html#method.with_gil).
+Lets start with the basics, open the `main.rs` file and include anyhow and PyO3's prelude. Then initialize the [Python Global Interpreter Lock (GIL)](https://docs.rs/pyo3/latest/pyo3/marker/struct.Python.html#method.with_gil):
 ```rust
 use anyhow::{anyhow, Result};
 use pyo3::prelude::*;
@@ -97,7 +101,7 @@ fn main() -> Result<()> {
 }
 ```
 
-We then load the Python file we created in the last step
+We then load the Python file we created in the last step:
 
 ```rust
 use anyhow::{anyhow, Result};
@@ -121,8 +125,7 @@ fn main() -> Result<()> {
 
 Running this, you should see "Downloading and loading models..." followed by the output of the actual download progress. They should be cached for subsequent runs.
 
-Finally, get the `text_to_speech` function pointer and call it each time a new line comes from stdin.
-
+Finally, get the `text_to_speech` function pointer and call it each time a new line comes from `stdin`:
 ```rust
 // include this
 use std::io::{self, BufRead};
@@ -178,17 +181,17 @@ use cpal::{
 };
 ```
 
-Then replace
+Then replace:
 ```rust
 dbg!(samples.len());
 ```
+
 with
 ```rust
 play(samples)?;
 ```
 
-Finally add the `play` function to the `main.rs` file.
-
+Finally add the `play` function to the `main.rs` file:
 ```rust
 fn play(mut smaples: Vec<f32>) -> Result<()> {
     let duration = smaples.len() as f32 / 16000.0;
@@ -226,7 +229,7 @@ fn play(mut smaples: Vec<f32>) -> Result<()> {
 }
 ```
 
-Running this you should hear back any line that you type:
+Running this you should hear back any line that you type!
 
 ![Speech to Text Example](stt-example.png)
 
@@ -236,26 +239,23 @@ Running this you should hear back any line that you type:
 
 ### Saving to File
 
-To save the resulting audio samples as a `.wav` file we need to add the `hound` crate
+To save the resulting audio samples as a `.wav` file we need to add the `hound` crate:
 ```bash
 cargo add hound
 ```
 
-Include it at the top of the `main.rs` file
-
+Include it at the top of the `main.rs` file:
 ```rust
 use hound::{SampleFormat, WavSpec, WavWriter};
 ```
 
-Add a call to `save` alongside the play method
-
+Add a call to `save` alongside the play method:
 ```rust
 save(&samples)?;
 play(samples)?;
 ```
 
-Then add the `save` method somewhere in `main.rs`
-
+Then add the `save` method somewhere in `main.rs`:
 ```rust
 fn save(samples: &[f32]) -> Result<()> {
     let spec = WavSpec {
@@ -279,14 +279,13 @@ fn save(samples: &[f32]) -> Result<()> {
 
 **Offline Models**
 
-I needed to train and ship my own models to a server. And I didn't want it to wait, download or touch the network every time the app is started. To achieve this two environment variables need to be set before initializing PyO3.
-
+I needed to train and ship my own models to a server. And I didn't want it to wait, download or touch the network every time the app is started. To achieve this two environment variables need to be set before initializing PyO3:
 ```rust
 std::env::set_var("TRANSFORMERS_OFFLINE", "1");
 std::env::set_var("HF_DATASETS_OFFLINE", "1");
 ```
 
-The trained models can be placed in a `data` directory (don't forget to use git LFS) and referenced when initializing Python objects
+The trained models can be placed in a `data` directory (don't forget to use git LFS) and referenced when initializing Python objects:
 ```python
 processor = SpeechT5Processor.from_pretrained("data/speecht5_tts_voxpopuli_bg")
 ```
@@ -301,10 +300,11 @@ Message passing avoids the need to resort to synchronization primitives like Mut
 
 ### Cleanup
 
-To deactivate the Python environment type `deactivate`` in the console
+To deactivate the Python environment type `deactivate` in the console:
 ```bash
 deactivate
 ```
+
 Since we're linking Python in our Rust executable, `cargo run` no longer works after the environment is deactivated.
 
 I also like to delete the .venv folder if I'm not going to fiddle with the project for some time. It's 4.7GB for the above dependencies:
@@ -312,17 +312,17 @@ I also like to delete the .venv folder if I'm not going to fiddle with the proje
 rm -rf .venv
 ```
 
-Remove the rust build artifacts, as they can grow to a considerable size too
+Remove the rust build artifacts, as they can grow to a considerable size too:
 ```bash
 cargo clean
 ```
 
 ### References
 
-- [🤗 Huggingface](https://huggingface.co/)
+- [Hugging Face](https://huggingface.co/)
 - [Are we learning yet?](https://www.arewelearningyet.com/)
-- [burn](https://github.com/burn-rs/burn)
-- [transformer-deploy](https://github.com/ELS-RD/transformer-deploy)
 - [PyO3](https://pyo3.rs)
 - [speecht5_tts](https://huggingface.co/microsoft/speecht5_tts)
 - [cpal](https://crates.io/crates/cpal)
+- [burn](https://github.com/burn-rs/burn)
+- [transformer-deploy](https://github.com/ELS-RD/transformer-deploy)
