@@ -221,14 +221,6 @@ main {
     border-bottom: none;
 }
 
-.post-list-item .post-summary {
-    margin-bottom: 1em;
-}
-
-.post-list-item .post-summary p {
-    display: inline;
-}
-
 /* Personal Information Section */
 
 .me {
