@@ -6,11 +6,11 @@ description = "This post describes a simple approach on calling Hugging Face ML 
 
 ![Connecting](cover.jpg)
 
-Recently I wanted to include 🤗 **Transformers** in a Rust voice assistant I was working on. It's muscle memory for me now to search for a pure Rust implementation of whatever I'm trying to do. Unfortunately, even though the machine learning landscape in Rust is gaining momentum, I couldn't find a crate that can load and run the specific set of models I needed on the **GPU**.<!-- more --> Specially the architectures currently popular on [Hugging Face](https://huggingface.co/). By the end of this post, you will be able to make your Rust apps speak with an AI voice.
+Recently I wanted to include 🤗 **Transformers** in a Rust voice assistant I was working on. It's muscle memory for me now to search for a pure Rust implementation of whatever I'm trying to do. Unfortunately, even though the machine learning landscape in Rust is gaining momentum, I couldn't find a crate that can load and run the specific set of models I needed on the **GPU**.<!-- more --> Especially the architectures currently popular on [Hugging Face](https://huggingface.co/). By the end of this post, you will be able to make your Rust apps speak with an AI voice.
 
 If you're reading this in a couple of years, first check the state of the art on [Are we learning yet?](https://www.arewelearningyet.com/) The most capable projects currently are [🤗 candle](https://github.com/huggingface/candle), [burn](https://github.com/burn-rs/burn) and [transformer-deploy](https://github.com/ELS-RD/transformer-deploy) Check them out first! Some may require conversion steps to be applied to each model, and not all models are supported. But if they support your workload, a pure Rust implementation should always be preferred.
 
-As much as I grumbled, I realized I needed to call Python code from Rust. To my pleasant surprise, doing so is simple with the awesome [PyO3](https://pyo3.rs) crate. This guide isn't anything complicated, it's aim is to save you (and even myself in a month or two) a few minutes of stumbling on how to fit these pieces together.
+As much as I grumbled, I realized I needed to call Python code from Rust. To my pleasant surprise, doing so is simple with the awesome [PyO3](https://pyo3.rs) crate. This guide isn't anything complicated, it aims to save you (and even myself in a month or two) a few minutes of stumbling on how to fit these pieces together.
 
 The approach outlined here involves linking Python with your Rust binary. For the models to respond as quickly as possible they are loaded at startup in video memory (if present). Subsequently, the Rust code invokes a Python function responsible for inference.
 
@@ -31,7 +31,7 @@ Add the necessary dependencies:
 cargo add cpal anyhow pyo3 -F pyo3/auto-initialize
 ```
 
-Init the Python environment and add it to .gitignore. This will make sure that anything you do and install will be self contained to the current folder:
+Init the Python environment and add it to .gitignore. This will make sure that anything you do and install will be self-contained in the current folder:
 ```bash
 python -m venv .venv && echo ".venv" >> .gitignore
 ```
@@ -87,9 +87,9 @@ The main difference from the official example is that we're moving the model inf
 
 ### Rust Land
 
-We're going to create a simple app that reads user input from stdin, sends it to the `text_to_speech` function in Python and then plays the resulting audio back via the [cpal](https://crates.io/crates/cpal) crate.
+We're going to create a simple app that reads user input from stdin, sends it to the `text_to_speech` function in Python, and then plays the resulting audio back via the [cpal](https://crates.io/crates/cpal) crate.
 
-Lets start with the basics, open the `main.rs` file and include anyhow and PyO3's prelude. Then initialize the [Python Global Interpreter Lock (GIL)](https://docs.rs/pyo3/latest/pyo3/marker/struct.Python.html#method.with_gil):
+Let's start with the basics, open the `main.rs` file and include anyhow and PyO3's prelude. Then initialize the [Python Global Interpreter Lock (GIL)](https://docs.rs/pyo3/latest/pyo3/marker/struct.Python.html#method.with_gil):
 ```rust
 use anyhow::{anyhow, Result};
 use pyo3::prelude::*;
@@ -164,7 +164,7 @@ fn main() -> Result<()> {
 }
 ```
 
-Here we iterate trough each line and call the `text_to_speech` method with it. We then [extract](https://pyo3.rs/v0.19.2/conversions/traits.html?highlight=extract#extract-and-the-frompyobject-trait) the result. Use `let samples: String = ...` if the model is doing text generation.
+Here we iterate through each line and call the `text_to_speech` method with it. We then [extract](https://pyo3.rs/v0.19.2/conversions/traits.html?highlight=extract#extract-and-the-frompyobject-trait) the result. Use `let samples: String = ...` if the model is doing text generation.
 
 Running this we can see the number of sound samples generated by the model.
 
@@ -191,11 +191,11 @@ with
 play(samples)?;
 ```
 
-Finally add the `play` function to the `main.rs` file:
+Finally, add the `play` function to the `main.rs` file:
 ```rust
-fn play(mut smaples: Vec<f32>) -> Result<()> {
-    let duration = smaples.len() as f32 / 16000.0;
-    smaples.reverse();
+fn play(mut samples: Vec<f32>) -> Result<()> {
+    let duration = samples.len() as f32 / 16000.0;
+    samples.reverse();
 
     let host = cpal::default_host();
     let device = host
@@ -214,7 +214,7 @@ fn play(mut smaples: Vec<f32>) -> Result<()> {
         &config,
         move |data: &mut [f32], _: &OutputCallbackInfo| {
             for sample in data.iter_mut() {
-                *sample = smaples.pop().unwrap_or(Sample::EQUILIBRIUM);
+                *sample = samples.pop().unwrap_or(Sample::EQUILIBRIUM);
             }
         },
         err_fn,
@@ -279,7 +279,7 @@ fn save(samples: &[f32]) -> Result<()> {
 
 **Offline Models**
 
-I needed to train and ship my own models to a server. And I didn't want it to wait, download or touch the network every time the app is started. To achieve this two environment variables need to be set before initializing PyO3:
+I needed to train and ship my models to a server. And I didn't want it to wait, download, or touch the network every time the app was started. To achieve this two environment variables need to be set before initializing PyO3:
 ```rust
 std::env::set_var("TRANSFORMERS_OFFLINE", "1");
 std::env::set_var("HF_DATASETS_OFFLINE", "1");
@@ -290,7 +290,7 @@ The trained models can be placed in a `data` directory (don't forget to use git 
 processor = SpeechT5Processor.from_pretrained("data/speecht5_tts_voxpopuli_bg")
 ```
 
-This way models will be loaded locally, without reaching trough the network.
+This way models will be loaded locally, without reaching through the network.
 
 **Using Channels for Communication**
 
