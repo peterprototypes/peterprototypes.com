@@ -1,0 +1,32 @@
+# Use a base image with the latest version of Rust installed
+FROM rust:latest as builder
+
+# Set the working directory in the container
+WORKDIR /app
+
+# Create a blank project
+RUN cargo init
+
+# Copy only the dependencies
+COPY Cargo.toml Cargo.lock .
+
+# A dummy build to get the dependencies compiled and cached
+RUN cargo build --release
+
+# Copy the real application code into the container
+COPY . .
+
+# Build the application
+RUN cargo build --release
+
+# Remove debug symbols
+RUN strip target/release/your-rust-app
+
+# Use a slim image for running your application
+FROM debian:12-slim as runtime
+
+# Copy only the compiled binary from the builder stage to this image
+COPY --from=builder /app/target/release/your-rust-app /bin/your-rust-app
+
+# Specify the command to run when the container starts
+CMD ["/bin/your-rust-app"]
