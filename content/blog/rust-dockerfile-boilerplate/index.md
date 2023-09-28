@@ -6,9 +6,9 @@ description = "A Rust Dockerfile boilerplate for quickly building size optimized
 
 At this point, Docker has become so deeply entrenched in our workflows, in order to remove it we need to format the planet, become fish, and try this evolution business again.
 
-![one thousand forty floppy drives](cover.png)
+![one thousand forty floppy disks](cover.png)
 
-In this post, I'll share a Dockerfile boilerplate for quickly building slim images. We achieve this via caching and [multi-stage builds](https://docs.docker.com/build/building/multi-stage/) builds. Usually, you might start with the following Dockerfile:<!-- more -->
+In this post, I'll share a Dockerfile boilerplate for quickly building slim images. We achieve this via caching and [multi-stage builds](https://docs.docker.com/build/building/multi-stage/). Usually, you might start with the following Dockerfile:<!-- more -->
 
 ```Dockerfile
 FROM rust:latest
@@ -20,13 +20,13 @@ CMD ["target/release/my-app"]
 
 This works and has the added advantage of being short and simple to understand (an underrated trait these days). Unfortunately, it will download and compile all dependencies each time the image is built. It will also contain the build cache and rust toolchain.
 
-Just the `FROM rust:latest` line is equivalent to one thousand forty floppy drives:
+Just the `FROM rust:latest` line is equivalent to one thousand forty floppy disks:
 ```bash
 $ docker inspect rust:latest | jq '.[0].Size' | numfmt --to=iec-i --suffix=B
 1.5GiB
 ```
 
-Compiling an empty application with `actix-web` as a single dependency bumps that up one and a half thousand floppy drives:
+Compiling an empty application with `actix-web` as a single dependency bumps that up one and a half thousand floppy disks:
 ```bash
 $ docker run -w /app rust:latest /bin/bash -c "cargo init && cargo add actix-web && cargo build"
     Created binary (application) package
@@ -42,7 +42,7 @@ Shipping that is not good craftsmanship. If you're using a registry to store bui
 
 This can be solved by using [multi-stage builds](https://docs.docker.com/build/building/multi-stage/). We can use the big fat `rust:latest` image to build our application, and then only copy the resulting binary to a second slim image. For now, I've picked up `debian:12-slim` for that. We'll build the dependencies early in the Dockerfile in an empty Rust project. This will cache them and speed up subsequent runs.
 
-Here's how the resulting [`Dockerfile`](./Dockerfile.txt) looks:
+Here's the resulting [`Dockerfile`](./Dockerfile.txt):
 ```Dockerfile
 # Use a base image with the latest version of Rust installed
 FROM rust:latest as builder
@@ -78,12 +78,13 @@ COPY --from=builder /app/target/release/example-app /bin/example-app
 CMD ["/bin/example-app"]
 ```
 
-The produced image is only 4% the size of the one used for building:
+The produced image is only 4% the size of the one used for building.
 
 ```bash
 $ docker inspect 261be2 | jq '.[0].Size' | numfmt --to=iec-i --suffix=B
 81MiB
 ```
+Quite an improvement. And a pretty easy win so far.
 
 ### Over Doing It
 
