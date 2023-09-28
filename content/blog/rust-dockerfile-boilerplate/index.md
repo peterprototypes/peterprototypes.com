@@ -1,7 +1,7 @@
 +++
 title = "Rust Dockerfile Boilerplate"
 date = 2023-09-28
-description = "A Dockerfile boilerplate for quickly building size optimized images with cached dependencies"
+description = "A Rust Dockerfile boilerplate for quickly building size optimized images with cached dependencies"
 +++
 
 At this point, Docker has become so deeply entrenched in our workflows, in order to remove it we need to format the planet, become fish, and try this evolution business again.
