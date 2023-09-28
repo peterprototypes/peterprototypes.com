@@ -4,7 +4,7 @@ date = 2023-09-28
 description = "A Dockerfile boilerplate for quickly building size optimized images with cached dependencies"
 +++
 
-At this point, Docker has become so deeply entrenched in our workflows, we need to format the planet to remove it, become fish, and try this evolution business again.
+At this point, Docker has become so deeply entrenched in our workflows, in order to remove it we need to format the planet, become fish, and try this evolution business again.
 
 ![one thousand forty floppy drives](cover.png)
 
