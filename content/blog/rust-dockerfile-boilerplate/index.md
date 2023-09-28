@@ -1,6 +1,6 @@
 +++
 title = "Rust Dockerfile Boilerplate"
-date = 2023-09-26
+date = 2023-09-28
 description = "A Dockerfile boilerplate for quickly building size optimized images with cached dependencies"
 +++
 
