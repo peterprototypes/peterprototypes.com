@@ -247,6 +247,7 @@ main {
     flex-direction: column;
     margin-left: 30px;
     flex-grow: 1;
+    max-width: 205px;
     /* padding-bottom: 30px; */
 }
 
@@ -254,13 +255,18 @@ main {
     display: flex;
     flex-direction: row;
     align-items: flex-start;
-    margin-bottom: 20px;
+    flex-wrap: wrap;
 }
 
 .social-links a {
     display: flex;
     align-items: center;
-    margin-right: 1em;
+    margin-right: 0.7em;
+    margin-bottom: 1em;
+}
+
+.social-links a:last-child {
+    margin-right: 0;
 }
 
 .contact-info svg {
