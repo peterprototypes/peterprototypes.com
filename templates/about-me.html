@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="about-page">
+    {{ page.content | safe }}
+</div>
+{% endblock content %}
+
+{% block scripts %}
+<script src="/js/photoswipe.umd.min.js"></script>
+
+{% set asset_metadata = [] %}
+{% for asset in page.assets %}
+{% if asset is matching("[.](jpg|png)$") %}
+{% set meta = get_image_metadata(path=asset) %}
+{% set_global asset_metadata = asset_metadata | concat(with=meta) %}
+{% endif %}
+{% endfor %}
+
+<script type="text/javascript">
+    const assets = JSON.parse('{{ page.assets | json_encode() | safe }}');
+    const asset_metadata = JSON.parse('{{ asset_metadata | json_encode() | safe }}');
+
+    window.onload = function () {
+        let elements = document.getElementsByClassName("gallery");
+
+        for (let i = 0; i < elements.length; i++) {
+            elements[i].onclick = function (e) {
+                const id = e.target.dataset.id;
+
+                const pswp = new PhotoSwipe({
+                    dataSource: assets.map((src, index) => ({
+                        src: src,
+                        ...asset_metadata[index]
+                    })).filter(({ src }) => src.startsWith("/about-me/" + id))
+                });
+
+                pswp.init();
+
+                return false;
+            }
+        }
+    };
+</script>
+{% endblock scripts %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="/css/photoswipe.css">
+{% endblock stylesheets %}

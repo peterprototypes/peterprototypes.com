@@ -24,11 +24,13 @@
         %}"application/rss+xml"{% endif %} title="RSS" href="{{ get_url(path=config.feed_filename) | safe }}">
     {% endif %}
 
-    <link rel="stylesheet" type="text/css" href="/style.css">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    {% block stylesheets %} {% endblock %}
 </head>
 
+
 <body>
-    <main class="{% if not current_path or current_path == '/' %}index-page{% endif %}">
+    <main class="{% if not current_path or current_path == '/' or current_path == '/about-me/' %}index-page{% endif %}">
         <aside class="me">
             <div class="profile-photo-wrapper">
                 <img src="/img/ProfilePhoto-400.jpg" alt="Peter Todorov Profile Picture" class="profile-photo" />
@@ -65,6 +67,7 @@
                     inaccuracies
                     or wish to contribute, don't hesitate to open a PR on GitHub or drop me an email.
                 </p>
+                <a href="/about-me">About Me</a>
             </div>
         </aside>
         <div class="border"></div>
@@ -75,7 +78,8 @@
 
     {% include "partials/github-corner.html" %}
 
-    <script src="/script.js"></script>
+    {% block scripts %} {% endblock %}
+    <script src="/js/script.js"></script>
 </body>
 
 </html>
