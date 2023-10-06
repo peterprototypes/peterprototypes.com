@@ -21,6 +21,19 @@
     const assets = JSON.parse('{{ page.assets | json_encode() | safe }}');
     const asset_metadata = JSON.parse('{{ asset_metadata | json_encode() | safe }}');
 
+    const all_assets = assets.map((src, index) => ({
+        src: src,
+        ...asset_metadata[index]
+    })).sort((a, b) => {
+        if (a.src > b.src) {
+            return 1;
+        }
+        if (a.src < b.src) {
+            return -1;
+        }
+        return 0;
+    });
+
     window.onload = function () {
         let elements = document.getElementsByClassName("gallery");
 
@@ -29,10 +42,8 @@
                 const id = e.target.dataset.id;
 
                 const pswp = new PhotoSwipe({
-                    dataSource: assets.map((src, index) => ({
-                        src: src,
-                        ...asset_metadata[index]
-                    })).filter(({ src }) => src.startsWith("/about-me/" + id))
+                    index: 0,
+                    dataSource: all_assets.filter(({ src }) => src.startsWith("/about-me/" + id))
                 });
 
                 pswp.init();

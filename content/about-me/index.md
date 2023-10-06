@@ -63,7 +63,7 @@ template = "about-me.html"
 - Integrated In-App Purchases
 - Fixed bugs and supported the app during its lifetime
 
-`Full-stack developer` of **<a href="#" class="gallery" data-id="3d-brd-viewer">3D BRD Viewer</a>**. A web app to display EAGLE PCB designs in 3D. Click here for screenshot of the project. Some of the work I've done:
+`Full-stack developer` of **3D BRD Viewer**. A web app to display EAGLE PCB designs in 3D. Click here for screenshot of the project. Some of the work I've done:
 - Developed frontend interface and 3D viewer
 - Designed and implemented database and REST APIs
 - Integrated Braintree payments, developed and tested subscription-based payment plans
@@ -71,7 +71,7 @@ template = "about-me.html"
 - Implemented a high-resolution Gerber rasterizer
 - Collected and curated a 3D model database of common electronic components
 - Provided user support  
-
+- <button class="gallery" data-id="3d-brd-viewer">Gallery</button>
 
 `Full-stack developer` on **[Art Review](https://art-review.net/en/category/1/Paintings)**. An online paintings portfolio and store. I handle design, backend, frontend, administration, and maintenance.
 
@@ -94,10 +94,11 @@ template = "about-me.html"
 
 `Developer` on **[femtovg](https://github.com/femtovg/femtovg)** - a GPU anti-aliased 2D vector drawing library ported from [C](https://github.com/memononen/nanovg) to Rust
 
-`Hardware developer` for an in-house linear motion timelapse camera rig. Some of the tasks I did:
+Worked on hardware and firmware for an in-house linear motion timelapse camera rig. Some of the tasks I did:
 - Designed the schematic and board layout in EAGLE, fitting power requirements and size constraints.
 - Ordered, assembled, and tested several PCB revisions.
 - Developed firmware for simultaneous real-time communication and motion control.
+- <button class="gallery" data-id="timelapse-camera-rig">Gallery</button>
 
 `Backend developer` on **[KingFootball](https://web.archive.org/web/20230224100624/kingfootball.com)**. My main responsibilities were:
 - Co-designed and maintained database schema
@@ -137,7 +138,7 @@ Technologies: `Rust` `PHP7` `C` `React` `HTML5` `CSS3` `ffmpeg` `OpenGL` `Three.
 - Worked on testing different arrangements of rooms
 - Produced hi-resolution renders of each room from multiple angles
 - Modeled, textured, lit, and rendered the building facade and storefront
-- <a href="#" class="gallery" data-id="novella-clinic-peachtree">Gallery</a>
+- <button class="gallery" data-id="novella-clinic-peachtree">Gallery</button>
 
 Technologies: `PHP7` `Rust` `MariaDB` `Redis` `GraphQL` `Docker` `Terraform` `AWS` `GitLab` `CI/CD` `Blender`
 
@@ -224,15 +225,16 @@ Technologies: `PHP5` `MySQL` `jQuery` `Backbone.js` `Debian Linux` `Objective-C`
 - Helped set up a test cluster of nine small form factor PCs, mirroring the final data center deployment
 - Worked on production server installation and setup at the Interxion data center in Madrid, Spain
 - Got a strong experience in server administration, backend architecture, and designing high-availability systems  
-<a href="#" class="gallery" data-id="stampii-ios">Gallery</a>
+- <button class="gallery" data-id="stampii-ios">Gallery</button>
 
-`Mobile Developer` on **[Scene Speak](https://apps.apple.com/us/app/scene-speak/id420492342)**. An iOS app for helping those with Autism, Aphasia, Apraxia, and developmental disabilities. <a href="#" class="gallery" data-id="scene-speak">Screenshots</a>
 
-`Mobile Developer` on **Global Warning**. An iOS game where you have a small amount of time to find a country on the world map. Learned 2D graphics programming, Bézier curves, point-in-shape collision detection, and animations. <a href="#" class="gallery" data-id="global-warning">Screenshots</a>
+`Mobile Developer` on **[Scene Speak](https://apps.apple.com/us/app/scene-speak/id420492342)**. An iOS app for helping those with Autism, Aphasia, Apraxia, and developmental disabilities. <button class="gallery" data-id="scene-speak">Gallery</button>
 
-`Mobile Developer` on **Arabian Delights**. A recipe app for both iPad and iPhone. Rubbing an oil lamp on the home screen produced a random recipe. Learned 2D particle animation to achieve the smoke effect from the lamp.  <a href="#" class="gallery" data-id="arabian-delights">Screenshots</a>
+`Mobile Developer` on **Global Warning**. An iOS game where you have a small amount of time to find a country on the world map. Learned 2D graphics programming, Bézier curves, point-in-shape collision detection, and animations. <button class="gallery" data-id="global-warning">Gallery</button>
 
-`Mobile Developer` on **Daily Tarot Reading**. An iOS game where you get a special tarot card every day. Gained 3D graphics experience as the cards were arranged on a 3D carousel. <a href="#" class="gallery" data-id="daily-tarot-reading">Screenshots</a>
+`Mobile Developer` on **Arabian Delights**. A recipe app for both iPad and iPhone. Rubbing an oil lamp on the home screen produced a random recipe. Learned 2D particle animation to achieve the smoke effect from the lamp.  <button class="gallery" data-id="arabian-delights">Gallery</button>
+
+`Mobile Developer` on **Daily Tarot Reading**. An iOS game where you get a special tarot card every day. Gained 3D graphics experience as the cards were arranged on a 3D carousel. <button class="gallery" data-id="daily-tarot-reading">Gallery</button>
 
 Worked as a `junior developer` on multiple projects:
 
