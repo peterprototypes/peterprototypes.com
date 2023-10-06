@@ -7,7 +7,7 @@ template = "about-me.html"
 - Extensive experience with PHP5, PHP7, Rust, SQL, Objective-C, JavaScript, HTML5, CSS3
 - Extensive experience in the administration of Apache, Nginx, Docker
 - Good knowledge and experience with MySQL/MariaDB, Redis, DynamoDB
-- Experience with Zend Framework, Laminas, Actix, Slim, Backbone.js, Angular, React, OpenGL, Three.js
+- Experience with Zend Framework, Laminas, Actix, Slim, Backbone.js, Angular 1, React, OpenGL, Three.js
 - Experience developing REST and GraphQL APIs
 - Experience in performance optimizations and load testing with Apache JMeter
 - DevSecOps experience with GitLab Runners, Terraform, Ansible, Packer, GitHub Actions
@@ -185,7 +185,7 @@ I worked on those, but don't remember what I did. Have also lost to time any doc
 
 `DevSecOps` for **Incept Development**. I deployed and maintained a self-hosted GitLab instance and runners. Played a supporting role for the team's CI/CD needs.
   
-Technologies: `Rust` `PHP7` `OpenAPI` `React` `MariaDB` `DynamoDB` `Ubuntu Server` `Docker` `AWS` `GitLab CI/CD` `Nagios`
+Technologies: `Rust` `PHP7` `OpenAPI` `Angular 1.x` `React` `MariaDB` `DynamoDB` `Ubuntu Server` `Docker` `AWS` `GitLab CI/CD` `Nagios`
 
 ## Software Developer at StangaOne1 *Apr 2011 - Oct 2013*
 
@@ -196,11 +196,11 @@ Technologies: `Rust` `PHP7` `OpenAPI` `React` `MariaDB` `DynamoDB` `Ubuntu Serve
 - Fixed bugs and implemented features
 - Gained experience in project management and task definition
 
-`Backend developer` on **Jennie-O** website during their “Make the Switch” campaign. I supported the team by chasing bugs, implemented several pages of the web app and various UI components, and helped with database design and production deployment.
+`Backend developer` on **Jennie-O** website during their “Make the Switch” campaign. I supported the team by chasing bugs, implemented several pages of the web app and various UI components. Helped with database design and production deployment.
 
 `Backend developer` on **Absolut 3D**, an Absolut campaign where you paint your own bottle of vodka in a Facebook page tab. Worked on the REST API and administration panel.
 
-`iOS developer` on the first version of **[ClosetSpace](https://apps.apple.com/in/app/closetspace-closet-outfits/id549724282)** by [Stylitics](https://stylitics.com/). Implemented several screens and UI components. Gained experience automating iOS UI tests.
+`iOS developer` on the first version of **[ClosetSpace](https://apps.apple.com/in/app/closetspace-closet-outfits/id549724282)** by [Stylitics](https://stylitics.com/). Implemented  screens and UI components. Gained experience automating iOS UI tests.
 
 `Frontend developer` on the web app for the **Visa Go World London Olympics 2012 ‘Cheer as one’** Campaign. Implemented UI components and REST communication. Helped develop a smooth SPA experience in a Facebook page tab.
 

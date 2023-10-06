@@ -147,6 +147,20 @@ kbd {
     line-height: 154%;
 }
 
+button {
+    background-color: #bababa;
+    color: #fff;
+    border: none;
+    padding: 3px 10px;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: var(--main-color);
+    transition: 0.7s;
+    cursor: pointer;
+}
+
 /* Styles */
 
 blockquote {
