@@ -1,6 +1,8 @@
 {% extends "base.html" %}
 
 {% block content %}
+<a href="javascript:window.print()" class="visible-mobile">🖨️ Print</a>
+
 <div class="about-page">
     {{ page.content | safe }}
 </div>

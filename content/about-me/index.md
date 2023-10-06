@@ -2,7 +2,7 @@
 template = "about-me.html"
 +++
 
-# Technical Skills <a class="print-me" href="javascript:window.print()">🖨️ Print</a>
+# Technical Skills <a class="print-me visible-desktop" href="javascript:window.print()">🖨️ Print</a>
 
 - Extensive experience with PHP5, PHP7, Rust, SQL, Objective-C, JavaScript, HTML5, CSS3
 - Extensive experience in the administration of Apache, Nginx, Docker

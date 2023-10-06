@@ -374,6 +374,14 @@ main {
     animation: type .5s alternate infinite;
 }
 
+.visible-desktop {
+    display: none;
+}
+
+.visible-mobile {
+    display: block;
+}
+
 @keyframes type {
     from {
         box-shadow: inset -3px 0px 0px #888;
@@ -409,6 +417,14 @@ main {
     .index-page .contact-info {
         margin: 20px 0 0 0;
         max-width: 205px;
+    }
+
+    .visible-desktop {
+        display: block;
+    }
+
+    .visible-mobile {
+        display: none;
     }
 }
 
