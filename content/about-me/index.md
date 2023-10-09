@@ -4,7 +4,7 @@ template = "about-me.html"
 
 # Technical Skills <a class="print-me visible-desktop" href="javascript:window.print()">🖨️ Print</a>
 
-- Extensive experience with PHP5, PHP7, Rust, SQL, Objective-C, JavaScript, HTML5, CSS3
+- Extensive experience with PHP5, PHP7, PHP8, Rust, SQL, Objective-C, JavaScript, HTML5, CSS3
 - Extensive experience in the administration of Apache, Nginx, Docker
 - Good knowledge and experience with MySQL/MariaDB, Redis, DynamoDB
 - Experience with Zend Framework, Laminas, Actix, Slim, Backbone.js, Angular 1, React, OpenGL, Three.js
@@ -140,7 +140,7 @@ Technologies: `Rust` `PHP7` `C` `React` `HTML5` `CSS3` `ffmpeg` `OpenGL` `Three.
 - Modeled, textured, lit, and rendered the building facade and storefront
 - <button class="gallery" data-id="novella-clinic-peachtree">Gallery</button>
 
-Technologies: `PHP7` `Rust` `MariaDB` `Redis` `GraphQL` `Docker` `Terraform` `AWS` `GitLab` `CI/CD` `Blender`
+Technologies: `PHP7` `PHP8` `Rust` `MariaDB` `Redis` `GraphQL` `Docker` `Terraform` `AWS` `GitLab` `CI/CD` `Blender`
 
 ## Senior Developer at Incept Development *Oct 2013 - Aug 2023*
 
