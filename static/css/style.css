@@ -9,14 +9,33 @@
     --text-disabled: grey;
 }
 
+html {
+    -moz-text-size-adjust: none;
+    -webkit-text-size-adjust: none;
+    text-size-adjust: none;
+}
+
 body {
-    margin: 0;
     background: #ffffff;
     color: #333;
     font-size: 18px;
     line-height: 1.5;
+    min-height: 100vh;
     -webkit-font-smoothing: antialiased;
     font-family: 'Roboto', sans-serif;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+    margin: 0;
 }
 
 article,
@@ -36,6 +55,13 @@ summary {
 }
 
 /* Headers */
+
+h1,
+h2,
+h3,
+h4 {
+    text-wrap: balance;
+}
 
 h1,
 h2 {
