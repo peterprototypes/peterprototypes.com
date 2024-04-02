@@ -19,7 +19,7 @@ template = "about-me.html"
 - Graphic design experience with GIMP, Inkscape, Corel Vector
 - Working knowledge of EAGLE, KiCad
 - Experience with 3D authoring tools: FreeCAD, Blender
-- Good knowledge of slicers: Simplify3D, Cura
+- Working Dart/Flutter knowledge
 
 # Languages
 
@@ -73,7 +73,7 @@ template = "about-me.html"
 - Provided user support  
 - <button class="gallery" data-id="3d-brd-viewer">Gallery</button>
 
-`Full-stack developer` on **[Art Review](https://art-review.net/en/category/1/Paintings)**. An online paintings portfolio and store. I handle design, backend, frontend, administration, and maintenance.
+`Full-stack developer` on **[Art Review](https://art-review.net/en/category/1/Paintings)**. An online art portfolio and store. I handle design, backend, frontend, administration, and maintenance.
 
 `Designed, built, and launched` **[Estimake.it](https://estimake.it)**. A free online tool for fast collaborative software project estimation. Work done:
 - Designed application look and feel
