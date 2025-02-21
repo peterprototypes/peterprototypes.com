@@ -11,7 +11,7 @@ author = "Peter Todorov"
 compile_sass = false
 
 # When set to "true", a feed is automatically generated (atom.xml)
-generate_feed = true
+# generate_feed = true
 
 # Whether to build a search index to be used later on by a JavaScript library
 build_search_index = true

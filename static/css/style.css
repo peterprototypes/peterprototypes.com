@@ -325,6 +325,8 @@ main {
 }
 
 .contact-info h1 a {
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
     color: var(--text-color);
 }
 
